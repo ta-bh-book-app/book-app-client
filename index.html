@@ -2,9 +2,36 @@
 <html>
     <head>
         <title>Book App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="vendor/styles/normalize.css">
+        <link rel="stylesheet" href="vendor/styles/icons.css">
+        <link rel="stylesheet" href="styles/base.css">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/modules.css"> -->
+        <script id="available-list" type="text/x-handlebars-template">
+            <li>Author: {{authorName}} Title: {{title}}</li>
+        </script>
     </head>
     <body>
-        <h1>hello world</h1>
+        <nav>
+            <li class="tab icon-home" data-content="main-page"><a href="#"> Home</a></li>
+            <li class="tab icon-address-book" data-content="about"><a href="#"> About</a></li>
+        </nav>
+        <section id="main-page" class="tab-content">
+            <h2>filler</h2>
+            <ul id="available-books">
+
+            </ul>
+        </section>
+        <section id="about" class="tab-content">
+            <h1>About section</h1>
+        </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script src="scripts/views/book-view.js"></script>
+        <script>
+            app.bookView.handleMainNav();
+        </script>
     </body>
 </html>
    
