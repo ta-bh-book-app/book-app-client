@@ -7,17 +7,17 @@ var app = app || {};
   var errorView = {};
 
   errorView.initErrorPage = err => {
-    app.indexJs.showOnly('.error-view');
+    app.showOnly('.error-view');
     $('#error-message').empty();
     $('#error-message')
-      .append(app.indexJs.render('error-template', err));
+      .append(app.render('error-template', err));
 
   }
 
-  errorView.errorCallback = err => {
-    console.error(err);
-    errorView.initErrorPage(err);
-  }
+  // errorView.errorCallback = err => {
+  //   console.error(err);
+  //   errorView.initErrorPage(err);
+  // }
 
   module.errorView = errorView;
 })(app);

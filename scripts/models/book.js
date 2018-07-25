@@ -4,6 +4,11 @@ var app = app || {};
 
 (function (module) {
 
+  function errorCallback(err) {
+    console.error(err);
+    module.errorView.initErrorPage(err);
+  }
+
   function Book(rawDataObj) {
     Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
