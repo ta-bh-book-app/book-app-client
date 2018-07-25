@@ -6,7 +6,7 @@ var app = app || {};
   var bookView = {};
 
   bookView.initIndexPage = () => {
-    app.indexJs.showOnly('.book-view');
+    app.showOnly('.book-view');
     app.Book.all.map(currentBook => {
       $('.book-view').append(currentBook.toHtml());
     });

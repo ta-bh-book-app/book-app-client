@@ -11,7 +11,7 @@ var app = app || {};
   Book.all = [];
 
   Book.prototype.toHtml = function () {
-    return app.indexJs.render(`book-list-template`, this);
+    return app.render(`book-list-template`, this);
   };
 
   Book.loadAll = rows => {
@@ -30,7 +30,7 @@ var app = app || {};
         Book.loadAll(results);
         callback();
       })
-      .catch(app.errorView.errorCallback(err));
+      .catch(app.errorView.errorCallback);
   }
 
   module.Book = Book;
