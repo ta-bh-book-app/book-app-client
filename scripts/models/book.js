@@ -2,11 +2,11 @@
 
 var app = app || {};
 
-(function (module) { 
+(function (module) {
 
   function Book(rawDataObj) {
     Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
-  };
+  }
 
   Book.all = [];
 
@@ -30,13 +30,8 @@ var app = app || {};
         Book.loadAll(results);
         callback();
       })
-      .catch(app.errorCallback(err));
+      .catch(app.errorView.errorCallback(err));
   }
-
-  function errorCallback(err)  {
-    console.error(err);
-    module.errorView.initErrorPage(err);
-  };
 
   module.Book = Book;
 })(app);
