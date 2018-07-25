@@ -14,10 +14,10 @@ var app = app || {};
 
   }
 
-  // errorView.errorCallback = err => {
-  //   console.error(err);
-  //   errorView.initErrorPage(err);
-  // }
+  function errorCallback(err) {
+    console.error(err);
+    module.errorView.initErrorPage(err);
+  }
 
   module.errorView = errorView;
 })(app);
