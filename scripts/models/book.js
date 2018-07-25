@@ -15,10 +15,10 @@ var app = app || {};
   };
 
   Book.loadAll = rows => {
-    rows.sort((a,b)  => {
+    rows.sort((a,b) => {
       a.title - b.title;
     });
-    
+
     Book.all = rows.map(bookObj => {
       new Book(bookObj)
     });
