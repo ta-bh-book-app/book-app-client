@@ -1,17 +1,21 @@
 'use strict';
 var app = app || {};
-var bookView = {};
+
 
 (function (module) {
-    bookView.handleMainNav = () => {
-        $('nav').on('click', '.tab', function(e) {
-            e.preventDefault();
-            $('.tab-content').hide();
-            $(`#${$(this).data('content')}`).fadeIn();
+    var bookView = {};
+
+    bookView.initIndexPage = () => {
+        app.indexJs.showOnly('.book-view');
+        app.Book.all.map(currentBook => {
+            $('.book-view').append(currentBook.toHtml());
         });
-    
-        $('nav .tab:first').click();
-    };
+    }
+
     module.bookView = bookView;
 })(app);
+
+$(function () {
+    app.Book.fetchAll(app.bookView.initIndexPage);
+});
 

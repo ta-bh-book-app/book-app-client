@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css"> -->
-        <script id="available-list" type="text/x-handlebars-template">
+        <script id="book-list-template" type="text/x-handlebars-template">
             <li>Author: {{authorName}} Title: {{title}}</li>
         </script>
     </head>
@@ -17,20 +17,22 @@
             <li class="tab icon-home" data-content="main-page"><a href="#"> Home</a></li>
             <li class="tab icon-address-book" data-content="about"><a href="#"> About</a></li>
         </nav>
-        <section id="main-page" class="tab-content">
+        <section id="main-page" class="container">
             <h2>filler</h2>
-            <ul id="available-books">
+            <ul id="book-list">
 
             </ul>
         </section>
-        <section id="about" class="tab-content">
+        <section id="about" class="container">
             <h1>About section</h1>
         </section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script src="scripts/views/index.js"></script>
+        <script src="scripts/views/book.js"></script>
         <script src="scripts/views/book-view.js"></script>
         <script>
-            app.bookView.handleMainNav();
+            
         </script>
     </body>
 </html>
