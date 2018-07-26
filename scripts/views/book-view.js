@@ -19,8 +19,9 @@ var app = app || {};
   // empty
   // show only
   // append
-  bookView.initDetailView = () => {
-    // app.Book.fetchOne()
+  bookView.initDetailView = context => {
+    // place context's id attribute here
+    // app.Book.fetchOne(app.showOnly('#detail-view'),context.params.id)
     app.showOnly('#detail-view');
   }
 

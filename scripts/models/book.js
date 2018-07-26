@@ -43,13 +43,15 @@ var app = app || {};
       .catch(app.errorView.errorCallback);
   };
 
-  Book.fetchOne = callback => {
-    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books:id`)
+  // need another parameter, the id and the callback
+  // here sending id
+  Book.fetchOne = (callback, passedId) => {
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${passedId}`)
     // Result comes from the corresponding (get path) get request in server.js. Result is an array with a single json object element
       .then(result => {
         Book.loadOne(result);
       })
-      .then(callback())
+      .then(callback)
       .catch(app.errorView.errorCallback);
   };
 
