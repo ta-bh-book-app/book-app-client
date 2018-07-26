@@ -1,0 +1,22 @@
+.book-item-container {
+  position: relative;
+}
+
+.book-item-container img {
+  width: 100%;
+}
+
+.book-item {
+  position: absolute;
+  bottom: 0;
+  padding: 5%;
+  height: 33.33%;
+  width: 100%;
+  background-color:#4a4a4a;
+  color: #9b9b9b;
+}
+
+/* HELPER CLASSES */
+.margin-none {
+  margin: 0;
+}

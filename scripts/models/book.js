@@ -1,13 +1,40 @@
+'use strict';
+
 var app = app || {};
 
-(function(module){
+(function (module) {
 
-  let productionApiUrl = 'https://ta-bh-book-app-server.herokuapp.com';
-  let developmentApiUrl = 'http://localhost:3000';
+  // function errorCallback(err) {
+  //   console.error(err);
+  //   module.errorView.initErrorPage(err);
+  // }
 
-  module.isProduction = /^(?!localhost|127)/.test(window.location.hostname);
+  function Book(rawDataObj) {
+    Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
+  }
 
-  module.ENVIRONMENT = {
-    apiUrl: module.isProduction ? productionApiUrl : developmentApiUrl
+  Book.all = [];
+
+  Book.prototype.toHtml = function () {
+    return app.render(`book-list-template`, this);
   };
+
+  Book.loadAll = rows => {
+    rows.sort((a,b) => {
+      a.title - b.title;
+    });
+
+    Book.all = rows.map(bookObj => new Book(bookObj));
+  };
+
+  Book.fetchAll = callback => {
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
+      .then(results => {
+        Book.loadAll(results);
+        callback();
+      })
+      .catch(app.errorView.errorCallback);
+  }
+
+  module.Book = Book;
 })(app);

@@ -1,17 +1,21 @@
 'use strict';
 var app = app || {};
-var bookView = {};
+
 
 (function (module) {
-    bookView.handleMainNav = () => {
-        $('nav').on('click', '.tab', function(e) {
-            e.preventDefault();
-            $('.tab-content').hide();
-            $(`#${$(this).data('content')}`).fadeIn();
-        });
-    
-        $('nav .tab:first').click();
-    };
-    module.bookView = bookView;
+  var bookView = {};
+
+  bookView.initIndexPage = () => {
+    app.showOnly('.book-view');
+    app.Book.all.map(currentBook => {
+      $('.book-view').append(currentBook.toHtml());
+    });
+  }
+
+  module.bookView = bookView;
 })(app);
+
+$(function () {
+  app.Book.fetchAll(app.bookView.initIndexPage);
+});
 
