@@ -3,8 +3,8 @@
     <head>
         <title>Book App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="vendor/styles/reset.css">
-        <link rel="stylesheet" href="vendor/styles/icons.css">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/icons.css">
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
@@ -17,6 +17,17 @@
                         <h3 class="margin-none">{{author}}</h3>
                     </div>                     
                 </a>
+            </li>
+        </script>
+        <script id="book-detail-template" type="text/x-handlebars-template">
+            <li>
+                <div class="book-item-container" href="/books/{{{book_id}}}">
+                    <img src="{{image_url}}"> 
+                    <div class="book-item">
+                        <h2 class="margin-none">{{title}}</h2>
+                        <h3 class="margin-none">{{author}}</h3>
+                    </div>                     
+                </div>
             </li>
         </script>
         <script id="error-template" type="text/x-handlebars-template">

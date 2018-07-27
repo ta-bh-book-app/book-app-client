@@ -6,23 +6,18 @@ var app = app || {};
   var bookView = {};
 
   bookView.initIndexPage = () => {
+    $('#list-view').empty();
     app.showOnly('#list-view');
     app.Book.all.map(currentBook => {
-      $('#list-view').append(currentBook.toHtml());
+      $('#list-view').append(currentBook.toHtml(`book-list-template`));
     });
   }
 
-  // need to pass the context object
-  // context needed in route
-  // route is going to need context as well
-  // passing in ctx
-  // empty
-  // show only
-  // append
+  // This empties the contents of detail-view and then renders it again. It then appends the return of toHtml (located in book.js) to the detail-view container. 
   bookView.initDetailView = context => {
-    // place context's id attribute here
-    // app.Book.fetchOne(app.showOnly('#detail-view'),context.params.id)
+    $('#detail-view').empty();
     app.showOnly('#detail-view');
+    $('#detail-view').append(app.Book.all[0].toHtml('book-detail-template'));
   }
 
   bookView.initFormView = () => {

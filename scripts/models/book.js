@@ -15,8 +15,9 @@ var app = app || {};
 
   Book.all = [];
 
-  Book.prototype.toHtml = function () {
-    return app.render(`book-list-template`, this);
+  // Takes an argument for the specified templateID, uses that templateID to run the render function (located in index.js) which will compile the handlebars template.
+  Book.prototype.toHtml = function (templateID) {
+    return app.render(templateID, this);
   };
 
   Book.loadAll = rows => {
@@ -38,10 +39,10 @@ var app = app || {};
 
   // need another parameter, the id and the callback
   // here sending id
-  Book.fetchOne = (ctx, callback) => {
-    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${ctx.params.book_id}`)
+  Book.fetchOne = (context, callback) => {
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${context.params.book_id}`)
     // Result comes from the corresponding (get path) get request in server.js. Result is an array with a single json object element representing a book.
-      .then(bookShelf => ctx.book = bookShelf[0])
+      .then(result => context.book = result[0])
       .then(callback)
       .catch(app.errorView.errorCallback);
   };
