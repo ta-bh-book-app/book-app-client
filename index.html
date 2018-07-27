@@ -3,14 +3,25 @@
     <head>
         <title>Book App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="vendor/styles/normalize.css">
-        <link rel="stylesheet" href="vendor/styles/icons.css">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/icons.css">
         <link rel="stylesheet" href="styles/base.css">
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
         <script id="book-list-template" type="text/x-handlebars-template">
             <li>
-                <div class="book-item-container">
+                <a class="book-item-container" href="/books/{{{book_id}}}">
+                    <img src="{{image_url}}"> 
+                    <div class="book-item">
+                        <h2 class="margin-none">{{title}}</h2>
+                        <h3 class="margin-none">{{author}}</h3>
+                    </div>                     
+                </a>
+            </li>
+        </script>
+        <script id="book-detail-template" type="text/x-handlebars-template">
+            <li>
+                <div class="book-item-container" href="/books/{{{book_id}}}">
                     <img src="{{image_url}}"> 
                     <div class="book-item">
                         <h2 class="margin-none">{{title}}</h2>
@@ -25,10 +36,10 @@
     </head>
     <body>
         <nav>
-            <li class="tab icon-home" data-content="main-page"><a href="#"> Home</a></li>
-            <li class="tab icon-address-book" data-content="about"><a href="#"> About</a></li>
+            <!-- <li class="tab icon-home" data-content="main-page"><a href="#"> Home</a></li>
+            <li class="tab icon-address-book" data-content="about"><a href="#"> About</a></li> -->
         </nav>
-        <section id="main-page" class="container book-view">
+        <section id="list-view" class="container">
             <h2>My Books</h2>
             <ul class="">
 
@@ -37,15 +48,23 @@
         <section id="about" class="container">
             <h1>About section</h1>
         </section>
+        <section id="detail-view" class="container">
+            <h2>DETAIL VIEW</h2>
+        </section>
+        <section id="form-view">
+
+        </section>
         <section id="error-message">
 
         </section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.8.6/page.min.js"></script>
         <script src="scripts/index.js"></script>
         <script src="scripts/views/error-view.js"></script>
         <script src="scripts/models/book.js"></script>
         <script src="scripts/views/book-view.js"></script>
+        <script src="scripts/controllers/routes.js"></script>
         <script>
             
         </script>

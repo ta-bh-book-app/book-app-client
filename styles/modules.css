@@ -1,5 +1,6 @@
 .book-item-container {
   position: relative;
+  display: block;
 }
 
 .book-item-container img {
