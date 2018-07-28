@@ -5,5 +5,5 @@ page('/books/:book_id', context => app.Book.fetchOne(context, app.bookView.initD
 // use context fetchOne using context as an arguement, plus the init call as the second arguement
 // look at rdeirect pass context objects
 // 
-page('/books/new', context => app.bookView.initFormView(context));
+page('/books/new', app.bookView.initFormView);
 page();

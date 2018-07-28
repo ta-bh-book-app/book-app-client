@@ -24,7 +24,6 @@ var app = app || {};
   }
 
   bookView.initFormView = () => {
-    // $('#book-add-form-view').empty();
     app.showOnly('#book-add-form-view');
     
 
@@ -46,7 +45,4 @@ var app = app || {};
   module.bookView = bookView;
 })(app);
 
-$(function () {
-  app.Book.fetchAll(app.bookView.initIndexPage);
-});
 
