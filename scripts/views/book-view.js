@@ -15,9 +15,12 @@ var app = app || {};
 
   // This empties the contents of detail-view and then renders it again. It then appends the return of toHtml (located in book.js) to the detail-view container. 
   bookView.initDetailView = context => {
+    console.log(context);
+    let singleBook = new app.Book(context);
+    console.log(singleBook, '*******');
     $('#detail-view').empty();
     app.showOnly('#detail-view');
-    $('#detail-view').append(app.Book.all[0].toHtml('book-detail-template'));
+    $('#detail-view').append(singleBook.toHtml('book-detail-template'));
   }
 
   bookView.initFormView = () => {
