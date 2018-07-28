@@ -37,17 +37,17 @@
         </script>
     </head>
     <body>
-        <header>
+        <header class="clearfix">
             <nav>
-                <ul>
-                    <li class="tab icon-home" data-content="main-page"><a href="/">home</a></li>
-                    <li class="tab icon-address-book" data-content="about"><a href="/books/new">add a book</a></li>
-                </ul>
-                
+                    <img class="logo-img" src="https://images.ctfassets.net/qjy3jg1udcmq/1MN5F84EVi0SaAieSkqY6S/46d632aa1811432f9c0a92600a1a5ee6/cf-logo-horizontal-2-color-white.png" >
+                <ul class="nav-list">
+                    <li class="tab icon-home"><a href="/"><span>home</span></a></li>
+                    <li class="tab icon-address-book"><a href="/books/new"><span>add-a-book</span></a></li>
+                </ul>            
             </nav>
         </header>
  
-        <section id="list-view"  class="container">
+        <section id="list-view"  class="container margin-lg-top">
             <h2>My Books</h2>
             <ul >
 
@@ -56,17 +56,17 @@
         <section id="about" class="container">
             <h1>About section</h1>
         </section>
-        <section id="detail-view" class="container">
-            <h2>DETAIL VIEW</h2>
+        <section id="detail-view" class="container margin-lg-top">
+            
         </section>
-        <section id="book-add-form-view" class="container">
+        <section id="book-add-form-view" class="container margin-lg-top">
             <h2>add a new book</h2>
-            <form id="book-add-form">
+            <form id="book-add-form" class="add-form">
                 <input name="title" type="text" placeholder="title">
                 <input name="author" type="text" placeholder="author">
                 <input name="isbn" type="text" placeholder="isbn">
                 <input name="image_url" type="text" placeholder="image url">
-                <textarea name="description" placeholder="description" cols="30" rows="5"></textarea>
+                <textarea name="description" placeholder="description - max 250 characters" cols="30" rows="5"></textarea>
                 <button type="submit">submit</button>
             </form>
         </section>
