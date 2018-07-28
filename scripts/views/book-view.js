@@ -13,18 +13,34 @@ var app = app || {};
     });
   }
 
+
+
   // This empties the contents of detail-view and then renders it again. It then appends the return of toHtml (located in book.js) to the detail-view container. 
   bookView.initDetailView = context => {
-    console.log(context);
     let singleBook = new app.Book(context);
-    console.log(singleBook, '*******');
     $('#detail-view').empty();
     app.showOnly('#detail-view');
     $('#detail-view').append(singleBook.toHtml('book-detail-template'));
   }
 
   bookView.initFormView = () => {
-    app.showOnly('#list-view');
+    // $('#book-add-form-view').empty();
+    app.showOnly('#book-add-form-view');
+    
+
+
+    $('#book-add-form').on('submit', (event) => {
+      event.preventDefault();
+      let newBook = {
+        title: event.target.title.value,
+        author: event.target.author.value,
+        isbn: event.target.isbn.value,
+        image_url: event.target.image_url.value,
+        description: event.target.description.value
+      };
+      module.Book.create(newBook);
+    });
+
   }
 
   module.bookView = bookView;

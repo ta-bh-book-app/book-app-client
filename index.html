@@ -32,13 +32,15 @@
             </li>
         </script>
         <script id="error-template" type="text/x-handlebars-template">
-            <li class="error-view">ERROR VIEW</li>
+            <h3>Woopsies, there are gremlins in the intertubes</h3>
+            <p>{{status}}: {{statusText}}</p>
         </script>
     </head>
     <body>
         <nav>
             <!-- <li class="tab icon-home" data-content="main-page"><a href="#"> Home</a></li>
             <li class="tab icon-address-book" data-content="about"><a href="#"> About</a></li> -->
+            <a id="add-new-link" href="/books/new">add a book</a>
         </nav>
         <section id="list-view"  class="container">
             <h2>My Books</h2>
@@ -52,12 +54,24 @@
         <section id="detail-view" class="container">
             <h2>DETAIL VIEW</h2>
         </section>
-        <section id="form-view">
-
+        <section id="book-add-form-view" class="container">
+            <h2>add a new book</h2>
+            <form id="book-add-form">
+                <input name="title" type="text" placeholder="title">
+                <input name="author" type="text" placeholder="author">
+                <input name="isbn" type="text" placeholder="isbn">
+                <input name="image_url" type="text" placeholder="image url">
+                <textarea name="description" placeholder="description" cols="30" rows="5"></textarea>
+                <button type="submit">submit</button>
+            </form>
         </section>
-        <section id="error-message">
-
+        <!-- Brandon - changed class="error-view container" to id="error-view" class="container" -->
+        <section id="error-view" class="container">
+            <h2>There be a problem on the horizon, yarrrr!!</h2>
+            <section id="error-message">
+            </section>
         </section>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.8.6/page.min.js"></script>
