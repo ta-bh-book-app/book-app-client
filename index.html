@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/modules.css">
         <script id="book-list-template" type="text/x-handlebars-template">
-            <li>
+            <li class="margin-bot">
                 <a class="book-item-container" href="/books/{{{book_id}}}">
                     <img src="{{image_url}}"> 
                     <div class="book-item">
@@ -26,6 +26,7 @@
                     <div class="book-item">
                         <h2 class="margin-none">{{title}}</h2>
                         <h3 class="margin-none">{{author}}</h3>
+                        <p>{{description}}</p>
                     </div>                     
                 </div>
             </li>
@@ -39,9 +40,9 @@
             <!-- <li class="tab icon-home" data-content="main-page"><a href="#"> Home</a></li>
             <li class="tab icon-address-book" data-content="about"><a href="#"> About</a></li> -->
         </nav>
-        <section id="list-view" class="container">
+        <section id="list-view"  class="container">
             <h2>My Books</h2>
-            <ul class="">
+            <ul >
 
             </ul>
         </section>

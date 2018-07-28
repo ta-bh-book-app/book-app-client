@@ -21,3 +21,7 @@
 .margin-none {
   margin: 0;
 }
+
+.margin-bot {
+  margin-bottom: 5%;
+}

@@ -4,11 +4,6 @@ var app = app || {};
 
 (function (module) {
 
-  // function errorCallback(err) {
-  //   console.error(err);
-  //   module.errorView.initErrorPage(err);
-  // }
-
   function Book(rawDataObj) {
     Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
@@ -39,6 +34,8 @@ var app = app || {};
 
   // need another parameter, the id and the callback
   // here sending id
+  // TODO: pass context into callback on fetchOne
+  // Callback function is initDetailPage function
   Book.fetchOne = (context, callback) => {
     $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${context.params.book_id}`)
     // Result comes from the corresponding (get path) get request in server.js. Result is an array with a single json object element representing a book.
