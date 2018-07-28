@@ -44,5 +44,10 @@ var app = app || {};
       .catch(app.errorView.errorCallback);
   };
 
+  Book.create = book => 
+    $.post(`${app.ENVIRONMENT.apiUrl}/api/v1/books`, book)
+      .then(() => page('/'))
+      .catch(app.errorView.errorCallback);
+
   module.Book = Book;
 })(app);
